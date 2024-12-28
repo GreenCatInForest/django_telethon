@@ -44,6 +44,10 @@ footer {
     @apply w-10/12 mx-2 p-1 rounded;
 }
 
+input {
+    @apply bg-slate-50 text-slate-950;
+}
+
 /* Buttons */
 
 .submit-btn {

@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block content%}
-<form method="post">
+<form method="post" action="{% url 'telegram_login' %}">
     {% csrf_token %}
     <label>Your Phone Number:</label>
-    <input type="text" name="phone" placeholder="+123456789" required />
+    <input class="bg-slate-50 text-slate-950" type="tel" name="phone" placeholder="+123456789" required />
     <button type="submit">Send Code</button>
 </form>
 {% endblock %}

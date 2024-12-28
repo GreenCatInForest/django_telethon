@@ -22,8 +22,6 @@ from users import views as user_views
 from chats import views as chat_views
 from .views import index_view
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view),

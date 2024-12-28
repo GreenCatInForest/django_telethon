@@ -3,8 +3,8 @@ from decouple import config
 import os
 
 # Load API credentials from .env
-API_ID = config('TELEGRAM_API_ID', default='')
-API_HASH = config('TELEGRAM_API_HASH', default='')
+API_ID = config('API_ID', default='')
+API_HASH = config('API_HASH', default='')
 
 # Storing session files in a secure subdirectory
 SESSION_DIR = os.path.join(os.path.dirname(__file__), 'sessions')

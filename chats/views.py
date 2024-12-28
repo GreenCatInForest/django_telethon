@@ -3,25 +3,31 @@ from django.contrib.auth.decorators import login_required
 from telethon.errors import PhoneCodeInvalidError
 from django_telethon.models import TelegramSession
 from .utils.telethon_util import get_telegram_client
+from asyncio import TimeoutError, wait_for
+from telethon.errors import AuthRestartError
 
-
-def telegram_login_view(request):
+async def telegram_login_view(request):
     if request.method == 'POST':
         phone = request.POST.get('phone')
         session_name = f"{request.user.username}_{phone}"
         client = get_telegram_client(session_name)
-        client.connect()
-        if not client.is_user_authorized():
-            client.send_code_request(phone)
-            request.session['phone'] = phone
-            request.session['session_name'] = session_name
-            return redirect('telegram_verify_view')
-        else:
-            return redirect('telegram_chats_view')
 
+        try:
+            async with client:
+                await wait_for(client.send_code_request(phone), timeout=10)
+                request.session['phone'] = phone
+                request.session['session_name'] = session_name
+        except AuthRestartError:
+            return render(request, 'telegram_login.html', {'error': 'Telegram requires you to restart the login process. Please try again.'})
+        except TimeoutError:
+            return render(request, 'telegram_login.html', {'error': 'Request timed out. Please try again.'})
+        except Exception as e:
+            return render(request, 'telegram_login.html', {'error': str(e)})
+
+        return redirect('telegram_verify')
     return render(request, 'telegram_login.html')
 
-
+     
 def telegram_verify_view(request):
     if request.method == 'POST':
         code = request.POST.get('code')
@@ -37,7 +43,7 @@ def telegram_verify_view(request):
                 phone_number=phone,
                 defaults={'session_name': session_name}
             )
-            return redirect('telegram_chats_view')
+            return redirect('telegram_chats')
         except PhoneCodeInvalidError:
             return render(request, 'telegram_verify.html', {'error': 'Invalid code'})
     return render(request, 'telegram_verify.html')

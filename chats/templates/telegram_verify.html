@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content%}
-<form method="post">
+<form method="post" action="{% url 'telegram_verify' %}">
     {% csrf_token %}
     <label>Enter Code:</label>
     <input type="text" name="code" required />
