@@ -1,3 +1,4 @@
+{% extends 'base.html'%}
 {% load static %}
 
 <!DOCTYPE html>
@@ -10,11 +11,13 @@
 </head>
 <body class="bg-gray-100 text-center p-10">
 
+
     {% if user.is_authenticated %}
         <div class="text-2xl text-blue-500 font-bold">Hello, {{ user.username }}</div>
     {% else %}
         <div class="text-2xl text-blue-500 font-bold">Hello, Django-Telethon</div>
     {% endif %}
     <button class="mt-5 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">Test Button</button>
+
 </body>
 </html>
