@@ -16,7 +16,8 @@
     
 </head>
 <body class="text-center p-10">
-    
+    <header></header>
+    <main>
     {% if user.is_authenticated %}
         <div class="text-2xl text-blue-500 font-bold">Hello, {{ user.username }}</div>
     {% else %}
@@ -27,5 +28,12 @@
     {% block content %}
 	{% endblock %}
     <button class="mt-5 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">Test Button</button>
+</main>
+<footer>
+    <div class="flex flex-row gap-1 justify-center items-center">
+        <p>All rights are reserved © and protected by guarding goose</p> 
+        <img src="{% static 'images/footer/icons8-goose-32.png' %}" alt="Footer Goose Icon" class="h-6 transform -scale-x-100"/>
+    </div>
+</footer>
 </body>
 </html>
