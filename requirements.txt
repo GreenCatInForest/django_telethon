@@ -2,6 +2,7 @@ asgiref==3.8.1
 Django==5.1.4
 pyaes==1.6.1
 pyasn1==0.6.1
+python-decouple==3.8
 rsa==4.9
 sqlparse==0.5.3
 Telethon==1.38.1
