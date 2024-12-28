@@ -19,8 +19,8 @@ from django.urls import path
 from django.shortcuts import render
 from .views import index_view
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-
     path('', index_view),
 ]
