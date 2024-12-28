@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content%}
+<form method="post">
+    {% csrf_token %}
+    <label>Your Phone Number:</label>
+    <input type="text" name="phone" placeholder="+123456789" required />
+    <button type="submit">Send Code</button>
+</form>
+{% endblock %}

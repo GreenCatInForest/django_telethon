@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content%}
+
+<h1>Your Telegram Chats</h1>
+<ul>
+  {% for dialog in dialogs %}
+    <li>{{ dialog.title }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

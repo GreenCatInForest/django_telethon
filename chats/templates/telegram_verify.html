@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content%}
+<form method="post">
+    {% csrf_token %}
+    <label>Enter Code:</label>
+    <input type="text" name="code" required />
+    <button type="submit">Verify</button>
+    {% if error %}
+      <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</form>
+{% endblock %}
