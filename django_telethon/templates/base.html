@@ -15,7 +15,7 @@
     <title>Tailwind Test</title>
     
 </head>
-<body class="text-center p-10">
+<body>
     <header></header>
     <main>
     {% if user.is_authenticated %}
@@ -24,14 +24,12 @@
         <h1 class="text-3xl uppercase font-bold">Browse Your Telegram Chats <span class="lowercase font-bold">easily</span></h1>
 
     {% endif %}
-
     {% block content %}
 	{% endblock %}
-    <button class="mt-5 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">Test Button</button>
 </main>
 <footer>
     <div class="flex flex-row gap-1 justify-center items-center">
-        <p>All rights are reserved © and protected by guarding goose</p> 
+        <p>All rights are reserved © and protected by guarding angry goose. Invaders are strongly prohibited.</p> 
         <img src="{% static 'images/footer/icons8-goose-32.png' %}" alt="Footer Goose Icon" class="h-6 transform -scale-x-100"/>
     </div>
 </footer>
