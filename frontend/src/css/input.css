@@ -7,7 +7,7 @@ html, * {
 }
 
 body {
-    @apply bg-blue-500 flex flex-col justify-between gap-9 min-h-screen text-center;
+    @apply bg-slate-950 flex flex-col justify-between gap-9 min-h-screen text-center text-slate-50;
 }
 
 main {
@@ -15,5 +15,43 @@ main {
 }
 
 footer {
-    @apply mb-0 text-sm bg-slate-600 text-slate-300 py-1;
+    @apply mb-0 text-xs bg-slate-800 text-slate-50 py-1;
+}
+
+.title {
+    @apply text-3xl font-bold flex flex-row justify-center items-end gap-3;
+}
+
+.title-main {
+    @apply uppercase;
+}
+
+.title-accent {
+    @apply lowercase text-purple-700 text-3xl;
+}
+
+/* Login Form */
+
+.login-form {
+    @apply flex justify-center flex-wrap 
+}
+
+.login-form div {
+    @apply my-3 text-center
+}
+
+.login-form input {
+    @apply w-10/12 mx-2 p-1 rounded;
+}
+
+/* Buttons */
+
+.submit-btn {
+    @apply mt-6 mx-2 px-6 py-1  bg-purple-700 text-slate-50 rounded  hover:bg-green-700
+}
+
+/* Text accents in titles and texts */
+
+.mark-accent {
+    @apply text-fuchsia-700 ml-1;
 }

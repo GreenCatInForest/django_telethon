@@ -21,8 +21,10 @@
     {% if user.is_authenticated %}
         <div class="text-2xl text-blue-500 font-bold">Hello, {{ user.username }}</div>
     {% else %}
-        <h1 class="text-3xl uppercase font-bold">Browse Your Telegram Chats <span class="lowercase font-bold">easily</span></h1>
-
+        <div class="title">
+            <h1 class="title-main">Browse Your Telegram Chats</h1> 
+            <span class="title-accent">easily</span>
+        </div>
     {% endif %}
     {% block content %}
 	{% endblock %}
