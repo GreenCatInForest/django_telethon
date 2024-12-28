@@ -19,13 +19,12 @@ from django.urls import include, path
 from django.shortcuts import render
 from .views import index_view
 from users import views
-
 from django.contrib.auth import views as auth_views
-
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view),
     path('users/', include('users.urls')),
+    path('accounts/login/', views.login_view, name='login'),
+    path('accounts/register/', views.register_view, name='register'),
 ]
